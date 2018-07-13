@@ -31,8 +31,11 @@ import {signIn, signOut} from '../../actions';
                                 <NavLink className='nav-link' to='/movie-quotes'>Movie Quote</NavLink>
                         </li>
                         <li className="nav-item">
-                                {this.renderAuthButton()}
+                                <NavLink className='nav-link' to='/sign-up'>Sign Up</NavLink>
                         </li>
+                        {/* <li className="nav-item">
+                                {this.renderAuthButton()}
+                        </li> */}
                         
                         </NavContainer>
                 );

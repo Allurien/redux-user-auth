@@ -7,6 +7,7 @@ import About from './about';
 import auth from '../hoc/auth';
 import SecretList from './secretList';
 import MovieQuotes from './movieQuotes';
+import SignUp from './signUp';
 
 
 
@@ -18,6 +19,7 @@ const App = () => (
             <Route path='/about' component={About}/>
             <Route path='/secret-list' component={auth(SecretList)}/>
             <Route path='/movie-quotes' component={auth(MovieQuotes)}/>
+            <Route path='/sign-up' component={SignUp}/>
         </div>
     </div>
 );
