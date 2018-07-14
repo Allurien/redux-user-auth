@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import NavContainer from './navContainer';
 import {NavLink, withRouter } from 'react-router-dom';
 import {connect} from 'react-redux';
@@ -14,6 +14,34 @@ import {signIn, signOut} from '../../actions';
                         return <button className='btn btn-outline-primary' onClick={signIn}>Sign In</button>
                 }
         }
+        renderLinks(){
+                if(this.props.auth){
+                        return(
+                                <Fragment>
+                                        <li className="nav-item">
+                                                <NavLink className='nav-link' to='/secret-list'>Secret List</NavLink>
+                                        </li>
+                                        <li className="nav-item">
+                                                <NavLink className='nav-link' to='/movie-quotes'>Movie Quote</NavLink>
+                                        </li>
+                                        <li className="nav-item">
+                                                <button onClick={this.props.signOut} className='btn btn-outline-danger'>Sign Out</button>
+                                        </li>
+                                </Fragment>
+                        )
+                }
+                return (
+                        <Fragment>
+                                <li className="nav-item">
+                                        <NavLink className='nav-link' to='/sign-up'>Sign Up</NavLink>
+                                </li>
+                                <li className="nav-item">
+                                        <NavLink className='nav-link' to='/sign-in'>Sign In</NavLink>
+                                </li>
+                        </Fragment>
+                )
+
+        }
 
         render(){
                 return(
@@ -24,15 +52,8 @@ import {signIn, signOut} from '../../actions';
                         <li className="nav-item">
                                 <NavLink className='nav-link' to='/about'>About</NavLink>
                         </li>
-                        <li className="nav-item">
-                                <NavLink className='nav-link' to='/secret-list'>Secret List</NavLink>
-                        </li>
-                        <li className="nav-item">
-                                <NavLink className='nav-link' to='/movie-quotes'>Movie Quote</NavLink>
-                        </li>
-                        <li className="nav-item">
-                                <NavLink className='nav-link' to='/sign-up'>Sign Up</NavLink>
-                        </li>
+                        {this.renderLinks()}
+                        
                         {/* <li className="nav-item">
                                 {this.renderAuthButton()}
                         </li> */}
